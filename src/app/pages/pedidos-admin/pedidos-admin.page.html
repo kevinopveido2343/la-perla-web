@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+<ion-header>
+  
+</ion-header>
+
+<ion-content class="ion-padding" style="--background: #121212; color: white;">
+  <div class="container mt-4">
+    <h4 class="text-center mb-4 text-warning fw-bold">Pedidos realizados por los clientes</h4>
+
+    <div class="table-responsive">
+      <table class="table table-dark table-hover table-striped text-center align-middle">
+        <thead>
+          <tr>
+            <th>Nombre Cliente</th>
+            <th>Correo</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Detalle</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let pedido of pedidos">
+            <tr>
+              <td>{{ pedido.cliente?.nombre || '—' }}</td>
+              <td>{{ pedido.cliente?.correo || '—' }}</td>
+              <td>{{ pedido.fecha | date: 'dd/MM/yyyy HH:mm' }}</td>
+              <td>${{ pedido.totalConIVA }}</td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary" (click)="pedido.mostrarDetalle = !pedido.mostrarDetalle">
+                  {{ pedido.mostrarDetalle ? 'Ocultar' : 'Ver' }}
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-sm btn-outline-danger" (click)="eliminarPedido(pedido._id)">
+                  <i class="bi bi-trash"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+
+            <!-- Detalle del pedido -->
+            <tr *ngIf="pedido.mostrarDetalle">
+              <td colspan="6" class="bg-secondary-subtle text-start text-dark">
+                <div class="p-3 bg-light rounded shadow-sm">
+                  <h6 class="fw-bold mb-2">Detalle del Pedido</h6>
+                  <table class="table table-bordered table-sm m-0">
+                    <thead class="table-secondary text-dark">
+                      <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Subtotal</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let prod of pedido.productos">
+                        <td>{{ prod.nombre }}</td>
+                        <td>{{ prod.cantidad }}</td>
+                        <td>${{ prod.precio }}</td>
+                        <td>${{ prod.subtotal }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="pedidos.length === 0" class="text-center mt-5 text-muted">
+      <p>No hay pedidos registrados aún.</p>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,90 @@
+<app-navbar></app-navbar>
+<ion-header>
+  <ion-toolbar class="bg-warning text-center">
+    <ion-title class="fw-bold text-dark">Gestión de Clientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="--background: #121212; color: white;">
+  <div class="container d-flex flex-column align-items-center justify-content-center">
+
+    <!-- Formulario -->
+    <div class="card my-4 shadow w-100" style="max-width: 600px; background-color: #1e1e1e; color: white;">
+      <div class="card-header bg-warning text-dark text-center fw-bold">
+        {{ clienteEditando ? 'Editar Cliente' : 'Registrar Cliente' }}
+      </div>
+      <div class="card-body">
+
+        <div class="mb-3">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-control" [(ngModel)]="cliente.nombre" placeholder="Nombre completo">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Correo</label>
+          <input type="email" class="form-control" [(ngModel)]="cliente.correo" placeholder="ejemplo@correo.com">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Teléfono</label>
+          <input type="tel" class="form-control" [(ngModel)]="cliente.telefono" placeholder="+56 9 1234 5678">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Dirección</label>
+          <input type="text" class="form-control" [(ngModel)]="cliente.direccion" placeholder="Dirección completa">
+        </div>
+
+        <button class="btn btn-success w-100 fw-bold" (click)="guardarCliente()">
+          {{ clienteEditando ? 'Actualizar Cliente' : 'Guardar Cliente' }}
+        </button>
+
+        <button *ngIf="clienteEditando" class="btn btn-secondary w-100 mt-2" (click)="cancelarEdicion()">
+          Cancelar Edición
+        </button>
+      </div>
+    </div>
+
+    <!-- Tabla -->
+    <div class="card w-100 mb-5 shadow" style="max-width: 900px; background-color: #1e1e1e; color: white;">
+      <div class="card-header bg-warning text-dark text-center fw-bold">
+        Clientes Registrados
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-dark table-striped table-hover text-center m-0">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let c of clientes">
+                <td>{{ c.nombre }}</td>
+                <td>{{ c.correo }}</td>
+                <td>{{ c.telefono }}</td>
+                <td>{{ c.direccion }}</td>
+                <td>
+                  <button class="btn btn-sm btn-warning me-1" (click)="editarCliente(c)">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button class="btn btn-sm btn-danger" (click)="eliminarCliente(c._id)">
+                    <i class="bi bi-trash-fill"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr *ngIf="clientes.length === 0">
+                <td colspan="5" class="text-muted">No hay clientes registrados.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

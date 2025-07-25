@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+
+<ion-content class="fondo-oscuro">
+  <div class="container py-4">
+    <h4 class="titulo-dashboard text-center mb-4">
+      📊 Reportes de <span class="marca">La Perla</span>
+    </h4>
+
+    <div class="row g-4 justify-content-center">
+      <!-- Ganancias Totales -->
+      <div class="col-md-4">
+        <div class="card shadow tarjeta-dashboard">
+          <div class="card-body text-center">
+            <h6 class="fw-bold text-success">💰 Ganancias Totales</h6>
+            <h5 class="fw-bold text-success">CLP {{ totalGanancias | number:'1.0-0' }}</h5>
+            <canvas id="graficoGanancias"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producción por tipo -->
+      <div class="col-md-4">
+        <div class="card shadow tarjeta-dashboard">
+          <div class="card-body text-center">
+            <h6 class="fw-bold text-primary">🥟 Producción por Tipo de Empanada</h6>
+            <canvas id="graficoProduccion"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pedidos por cliente -->
+      <div class="col-md-4">
+        <div class="card shadow tarjeta-dashboard">
+          <div class="card-body text-center">
+            <h6 class="fw-bold text-info">📦 Pedidos por Cliente</h6>
+            <canvas id="graficoPedidos"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

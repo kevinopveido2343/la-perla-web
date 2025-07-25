@@ -1,0 +1,55 @@
+
+<nav class="navbar d-flex justify-content-between align-items-center px-4 py-2 bg-dark text-light">
+  <div class="navbar-left d-flex align-items-center">
+    <a [routerLink]="['/home']" class="d-flex align-items-center text-decoration-none">
+      <img src="assets/icon/favicon.ico" alt="logo" class="logo" style="width: 30px; height: 30px;" />
+      <span class="brand ms-2 fw-bold text-warning fs-5">La Perla</span>
+    </a>
+  </div>
+
+  <div class="navbar-right">
+    <ng-container *ngIf="!autenticado; else menuUsuario">
+      <div class="dropdown">
+        <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          Hola, ingresa ▼
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end bg-dark text-light">
+          <li><a class="dropdown-item text-light" (click)="irLogin()">🔐 Inicia sesión</a></li>
+          <li><a class="dropdown-item text-light" (click)="irRegistro()">📝 Regístrate</a></li>
+        </ul>
+      </div>
+    </ng-container>
+<ng-template #menuUsuario>
+  <div class="dropdown">
+    <button class="btn btn-sm btn-outline-warning dropdown-toggle" type="button" data-bs-toggle="dropdown">
+      👤 {{ nombreUsuario || 'Usuario' }} ▼
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end bg-dark text-light">
+      <!-- RUTAS PARA ADMIN -->
+      <ng-container *ngIf="esAdmin">
+        <li><a class="dropdown-item text-light" [routerLink]="['/dashboard-admin']">📊 Panel</a></li>
+        <li><a class="dropdown-item text-light" [routerLink]="['/productos']">🥟 Productos</a></li>
+        <li><a class="dropdown-item text-light" [routerLink]="['/clientes']">👥 Clientes</a></li>
+        <li><a class="dropdown-item text-light" [routerLink]="['/produccion']">🏭 Producción</a></li>
+        <li><a class="dropdown-item text-light" [routerLink]="['/pedidos-admin']">📦 Pedidos</a></li>
+        <li><a class="dropdown-item text-light" [routerLink]="['/reportes-admin']">📈 Reportes</a></li>
+        <li><hr class="dropdown-divider bg-light"></li>
+      </ng-container>
+
+      <!-- RUTAS PARA CLIENTE -->
+      <ng-container *ngIf="rol === 'cliente'">
+        <li><a class="dropdown-item text-light" [routerLink]="['/pedidos-cliente']">🛒 Realizar Pedido</a></li>
+        <li><a class="dropdown-item text-light" [routerLink]="['/mis-pedidos']">📋 Mis Pedidos</a></li>
+        <li><a class="dropdown-item text-light" [routerLink]="['/home']">🏠home</a></li>
+        <li><hr class="dropdown-divider bg-light"></li>
+      </ng-container>
+
+      <!-- CERRAR SESIÓN -->
+      <li><a class="dropdown-item text-danger" (click)="cerrarSesion()">🔒 Cerrar sesión</a></li>
+    </ul>
+  </div>
+</ng-template>
+
+    
+  </div>
+</nav>

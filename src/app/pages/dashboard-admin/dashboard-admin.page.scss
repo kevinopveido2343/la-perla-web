@@ -1,0 +1,24 @@
+:host {
+  background-color: #121212;
+  min-height: 100vh;
+  display: block;
+  padding: 1rem;
+}
+
+.card {
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+button.btn {
+  font-size: 1.1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+button.btn:hover {
+  background-color: #ffc107;
+  color: black;
+}

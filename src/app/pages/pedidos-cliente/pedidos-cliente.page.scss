@@ -1,0 +1,52 @@
+ion-content {
+  background-color: #fffce8; // fondo suave como PedidosYa
+}
+
+.card {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+input[type="number"] {
+  border: 2px solid #ffc107;
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
+}
+
+button.btn {
+  transition: all 0.2s ease;
+}
+
+button.btn:hover {
+  transform: scale(1.05);
+}
+
+.table {
+  background-color: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.table thead {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+  font-size: 1rem;
+}
+
+.text-end p {
+  font-size: 1.1rem;
+  font-weight: 500;
+}

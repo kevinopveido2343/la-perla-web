@@ -1,0 +1,84 @@
+<app-navbar></app-navbar>
+<ion-header>
+  <ion-toolbar class="bg-warning text-center">
+    <ion-title class="fw-bold">Gestión de Producción</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="--background: #121212; color: white;">
+  <div class="container d-flex flex-column align-items-center justify-content-center">
+
+    <!-- Formulario de Producción -->
+    <div class="card my-4 w-100" style="max-width: 600px;">
+      <div class="card-header bg-warning text-dark text-center fw-bold">
+        Registrar Producción
+      </div>
+      <div class="card-body">
+
+        <div class="mb-3">
+          <label class="form-label">Tipo de Empanada</label>
+          <select class="form-select" [(ngModel)]="tipo">
+            <option value="" disabled selected>Seleccione una empanada</option>
+            <option *ngFor="let producto of productos" [value]="producto.nombre">
+              {{ producto.nombre }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Cantidad</label>
+          <input type="number" class="form-control" [(ngModel)]="cantidad" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Responsable</label>
+          <input type="text" class="form-control" [(ngModel)]="responsable" />
+        </div>
+
+        <button class="btn btn-success w-100" (click)="guardarProduccion()">
+          <i class="bi bi-check-circle-fill me-2"></i> Guardar Producción
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Tabla de Producciones -->
+    <div class="card w-100 mb-5" style="max-width: 900px;">
+      <div class="card-header bg-warning text-dark text-center fw-bold">
+        Producciones Registradas
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-dark table-striped table-hover text-center m-0">
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>Cantidad</th>
+                <th>Responsable</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of producciones">
+                <td>{{ p.tipoEmpanada }}</td>
+                <td>{{ p.cantidad }}</td>
+                <td>{{ p.responsable }}</td>
+                <td>{{ p.fecha | date: 'shortDate' }}</td>
+                <td>
+                  <button class="btn btn-sm btn-outline-warning me-1" (click)="cargarProduccion(p)">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-danger" (click)="eliminarProduccion(p._id)">
+                    <i class="bi bi-trash-fill"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

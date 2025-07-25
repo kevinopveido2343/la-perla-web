@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+
+<ion-content class="fondo-oscuro">
+  <div class="container mt-4">
+    <h4 class="text-warning text-center mb-4">📦 Mis Pedidos</h4>
+
+    <div *ngIf="pedidos.length === 0" class="alert alert-info text-center">
+      Aún no has realizado pedidos.
+    </div>
+
+    <div *ngFor="let pedido of pedidos" class="card mb-3 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title fw-bold text-primary">🧾 Pedido ID: {{ pedido._id }}</h5>
+        <p class="card-text mb-1"><strong>Fecha:</strong> {{ pedido.fecha | date:'medium' }}</p>
+        <p class="card-text mb-1"><strong>Cliente:</strong> {{ pedido.nombreCliente }}</p>
+
+        <table class="table table-sm mt-2">
+          <thead class="table-light">
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let prod of pedido.productos">
+              <td>{{ prod.nombre }}</td>
+              <td>{{ prod.cantidad }}</td>
+              <td>${{ prod.precio }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="fw-bold">Total: {{ calcularTotal(pedido) }}</span>
+          <button class="btn btn-outline-warning btn-sm" (click)="generarPDF(pedido)">
+            🧾 Generar PDF
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

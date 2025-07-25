@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div class="container mt-4">
+  <h2 class="text-center text-light mb-4 fw-bold">📊 Panel Administrativo</h2>
+
+  <div class="row text-center justify-content-center">
+    <div class="col-md-5 mb-4">
+      <div class="card shadow-lg border-0 rounded-4 p-4 bg-warning text-dark">
+        <h5 class="fw-semibold">🧾 Total de Pedidos</h5>
+        <p class="display-4 fw-bold mb-0">{{ totalPedidos }}</p>
+      </div>
+    </div>
+
+    <div class="col-md-5 mb-4">
+      <div class="card shadow-lg border-0 rounded-4 p-4 bg-white text-dark">
+        <h5 class="fw-semibold">🥟 Producción de Hoy</h5>
+        <p class="display-4 fw-bold mb-0">{{ produccionHoy }}</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="row mt-4 text-center justify-content-center">
+  <div class="col-md-3 mb-3">
+    <button class="btn btn-outline-light w-100 py-3 rounded-3 fw-semibold" [routerLink]="['/productos']">
+      📦 Productos
+    </button>
+  </div>
+  <div class="col-md-3 mb-3">
+    <button class="btn btn-outline-light w-100 py-3 rounded-3 fw-semibold" [routerLink]="['/produccion']">
+      🛠 Producción
+    </button>
+  </div>
+  <div class="col-md-3 mb-3">
+    <button class="btn btn-outline-light w-100 py-3 rounded-3 fw-semibold" [routerLink]="['/clientes']">
+      👥 Clientes
+    </button>
+  </div>
+  <div class="col-md-3 mb-3">
+    <button class="btn btn-outline-light w-100 py-3 rounded-3 fw-semibold" [routerLink]="['/pedidos-admin']">
+      🧾 Pedidos
+    </button>
+  </div>
+</div>
+
+</div>

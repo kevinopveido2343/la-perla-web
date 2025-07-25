@@ -1,0 +1,53 @@
+/* src/app/pages/home/home.page.scss */
+
+ion-content {
+  --background: #fffde7; /* Amarillo pastel */
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.alert {
+  font-size: 1rem;
+  padding: 1rem;
+  background-color: #ffe082;
+  color: #5d4037;
+  border: 1px solid #ffd54f;
+  border-radius: 12px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 1.8rem;
+  color: #d84315;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+p {
+  font-size: 1rem;
+  color: #616161;
+}
+
+.btn {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 25px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  min-width: 180px;
+  z-index: 999;
+}

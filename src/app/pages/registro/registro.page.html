@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+
+<ion-content class="ion-padding" style="--background: #121212;">
+  <div class="container mt-5 d-flex justify-content-center align-items-center">
+    <div class="card p-4 shadow-lg w-100 text-white bg-dark" style="max-width: 500px; border-radius: 10px;">
+      <h2 class="text-center fw-bold mb-4 text-warning">Registro de Usuario</h2>
+
+      <form (ngSubmit)="registrarUsuario()">
+        <div class="mb-3">
+          <label class="form-label">Nombre</label>
+          <input type="text" [(ngModel)]="usuario.nombre" name="nombre" class="form-control" placeholder="Nombre" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Correo</label>
+          <input type="email" [(ngModel)]="usuario.correo" name="correo" class="form-control" placeholder="Correo" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Teléfono</label>
+          <input type="text" [(ngModel)]="usuario.telefono" name="telefono" class="form-control" placeholder="Teléfono" required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Dirección</label>
+          <input type="text" [(ngModel)]="usuario.direccion" name="direccion" class="form-control" placeholder="Dirección" required />
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label">Contraseña</label>
+          <input type="password" [(ngModel)]="usuario.contrasena" name="contrasena" class="form-control" placeholder="Contraseña" required />
+        </div>
+
+        <button type="submit" class="btn btn-warning w-100 fw-bold">Registrarse</button>
+      </form>
+    </div>
+  </div>
+</ion-content>

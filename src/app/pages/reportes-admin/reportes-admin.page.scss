@@ -1,0 +1,33 @@
+.fondo-oscuro {
+  --background: #111;
+  background-color: #111 !important;
+  min-height: 100%;
+}
+
+.titulo-dashboard {
+  font-weight: bold;
+  color: #facc15;
+  font-size: 1.8rem;
+}
+
+.marca {
+  color: #ffc107;
+}
+
+.tarjeta-dashboard {
+  border-radius: 16px;
+  background-color: #fff;
+  transition: transform 0.2s ease;
+  min-height: 390px;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  }
+
+  canvas {
+    width: 100% !important;
+    height: 250px !important;
+    margin-top: 1rem;
+  }
+}

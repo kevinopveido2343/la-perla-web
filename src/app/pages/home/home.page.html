@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+
+<ion-content class="ion-padding" style="--background: #fffde7;">
+  <div class="container mt-4">
+    <div class="alert alert-warning text-center fw-bold rounded shadow-sm" role="alert">
+      🌟 ¡Bienvenido a <strong>La Perla</strong>! Realiza tus pedidos de empanadas de forma fácil y rápida.
+    </div>
+
+    <div class="text-center mt-5">
+      <img src="assets/img/la-perla.jpg" width="800" class="mb-3 rounded shadow" />
+      <h1 class="fw-bold text-dark">¡Empanadas con Sabor Chileno!</h1>
+      <p class="text-muted">Encuentra los mejores sabores, directo desde nuestra fábrica a tu mesa.</p>
+
+      <a [routerLink]="['/pedidos-cliente']" class="btn btn-warning mt-4 fw-bold">
+        Hacer un Pedido
+      </a>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,27 @@
+.custom-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #212529;
+  border: 1px solid #444;
+  padding: 0.5rem;
+  list-style: none;
+  z-index: 1000;
+  min-width: 180px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+  li {
+    padding: 0.3rem 0;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      padding: 0.3rem 0.5rem;
+
+      &:hover {
+        background-color: #343a40;
+      }
+    }
+  }
+}

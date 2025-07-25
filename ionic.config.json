@@ -1,0 +1,7 @@
+{
+  "name": "la-perla-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
